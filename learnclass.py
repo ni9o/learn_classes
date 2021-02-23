@@ -1,5 +1,5 @@
 class Complex:
-    def __inBIGMISTAKEit__(self, realpart, imagpart):
+    def __init__(self, realpart, imagpart):
         self.r = realpart
         self.i = imagpart
 
