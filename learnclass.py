@@ -1,24 +1,21 @@
-class LivingBeing:
-    bookOfTheLiving = []
-    bookOfTheDead = []
-    lbID = None
-
-    def __init__(self, lbID):
-        if lbID is None:
-            lbID = 0
+class Square:
+    def __init__(self, side):
+        self.height = side
+        self.__width = side
+    @property
+    def height(self):
+        return self.__height, self.__width
+    @height.setter
+    def height(self, new_side):
+        if new_side >= 0:
+            self.__height = new_side
+            self.__width = new_side
         else:
-            lbID += 1
-        self.bookOfTheLiving.append(lbID)
-        print('Born ', lbID)
+            raise Exception('Value needs to be 0 or larger.')
 
-    def __del__(self, lbID):
-        self.bookOfTheDead.append(lbID)
-
-class Human(LivingBeing):
-    def __init__(self, mname):
-        self.name = mname
-
-for i in range(10):
-    x = Human(i)
-
-print(LivingBeing.bookOfTheLiving)
+sq1 = Square(2)
+mh = sq1.height()
+print(mh)
+sq1.height(5)
+mh = sq1.height()
+print(mh)
